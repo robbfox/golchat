@@ -1,6 +1,10 @@
 import React from 'react';
 
-const Header: React.FC = () => {
+interface HeaderProps {
+  otherUserName: string;
+}
+
+const Header: React.FC<HeaderProps> = ({ otherUserName }) => {
   return (
     <div className="fixed top-0 w-full bg-[#075E54] z-10 flex items-center p-3 text-white shadow-md">
       <div className="flex items-center space-x-3">
@@ -8,10 +12,10 @@ const Header: React.FC = () => {
            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
         </button>
         <div className="w-10 h-10 bg-gray-300 rounded-full flex items-center justify-center overflow-hidden">
-            <span className="text-xl font-bold text-gray-600">R</span>
+            <span className="text-xl font-bold text-gray-600">{otherUserName ? otherUserName.charAt(0) : '?'}</span>
         </div>
         <div>
-          <h1 className="text-lg font-semibold leading-tight">Robert Fox</h1>
+          <h1 className="text-lg font-semibold leading-tight">{otherUserName}</h1>
           <p className="text-xs text-green-100">last seen today at 22:25</p>
         </div>
       </div>

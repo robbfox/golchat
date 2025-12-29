@@ -12,9 +12,10 @@ interface Message {
 
 interface ChatContainerProps {
   messages: Message[];
+  currentUser: string;
 }
 
-const ChatContainer: React.FC<ChatContainerProps> = ({ messages }) => {
+const ChatContainer: React.FC<ChatContainerProps> = ({ messages, currentUser }) => {
   let lastDate = '';
 
   return (
@@ -22,6 +23,8 @@ const ChatContainer: React.FC<ChatContainerProps> = ({ messages }) => {
       {messages.map((msg, index) => {
         const showDate = msg.date !== lastDate;
         lastDate = msg.date;
+
+        const isMe = msg.sender === currentUser;
 
         return (
           <React.Fragment key={index}>
@@ -42,7 +45,7 @@ const ChatContainer: React.FC<ChatContainerProps> = ({ messages }) => {
                 <ChatBubble
                   text={msg.text}
                   time={msg.time}
-                  isMe={!!msg.isMe}
+                  isMe={isMe}
                   sender={msg.sender || 'Unknown'}
                 />
             )}
