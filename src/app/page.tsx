@@ -52,31 +52,31 @@ const Page: React.FC = () => {
 
   if (loggingInUser) {
     return (
-      <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-4">
-        <div className="bg-white p-8 rounded shadow-md w-full max-w-sm">
-          <h2 className="text-xl font-bold mb-4 text-center">Login as {loggingInUser}</h2>
+      <div className="flex flex-col items-center justify-center min-h-screen bg-black p-4">
+        <div className="bg-gray-900 p-8 rounded shadow-md w-full max-w-sm">
+          <h2 className="text-xl font-bold mb-4 text-center text-white">Login as {loggingInUser}</h2>
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700">Password</label>
+              <label className="block text-sm font-medium text-gray-300">Password</label>
               <input
                 type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="mt-1 block w-full border border-gray-300 rounded px-3 py-2 text-gray-900 focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                className="mt-1 block w-full border border-gray-700 bg-gray-800 rounded px-3 py-2 text-white focus:outline-none focus:ring-purple-500 focus:border-purple-500"
                 required
               />
             </div>
             {error && <p className="text-red-500 text-sm">{error}</p>}
             <button
               type="submit"
-              className="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600 transition"
+              className="w-full bg-purple-600 text-white py-2 rounded hover:bg-purple-700 transition"
             >
               Login
             </button>
             <button
               type="button"
               onClick={handleBack}
-              className="w-full bg-gray-300 text-gray-700 py-2 rounded hover:bg-gray-400 transition"
+              className="w-full bg-gray-700 text-white py-2 rounded hover:bg-gray-600 transition"
             >
               Back
             </button>
@@ -87,17 +87,17 @@ const Page: React.FC = () => {
   }
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 space-y-4">
-      <h1 className="text-2xl font-bold mb-4">Select User Login</h1>
+    <div className="flex flex-col items-center justify-center min-h-screen bg-black space-y-4">
+      <h1 className="text-2xl font-bold mb-4 text-white">Select User Login</h1>
       <button
         onClick={() => handleLoginClick('Robert Fox')}
-        className="bg-blue-500 text-white px-6 py-3 rounded shadow hover:bg-blue-600 transition"
+        className="bg-purple-600 text-white px-6 py-3 rounded shadow hover:bg-purple-700 transition"
       >
         Login as Robert
       </button>
       <button
         onClick={() => handleLoginClick('Sahida Parvin')}
-        className="bg-green-500 text-white px-6 py-3 rounded shadow hover:bg-green-600 transition"
+        className="bg-purple-600 text-white px-6 py-3 rounded shadow hover:bg-purple-700 transition"
       >
         Login as Sahida
       </button>
